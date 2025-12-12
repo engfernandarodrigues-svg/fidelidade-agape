@@ -139,7 +139,7 @@
     <label>Outros — valor</label>
     <input type="number" id="outrosValor" min="0" step="0.01" />
 
-    <div class="p-3" style="
+    <div style="
       margin-top: 25px; 
       padding: 15px; 
       background:#fff7da; 
@@ -197,35 +197,22 @@
     const outrosValor = document.getElementById('outrosValor').value;
     const total = document.getElementById('total').textContent;
 
-    let msg = "💠 Comunidade Apostólica e Profética Ágape
+    let msg = `💠 Comunidade Apostólica e Profética Ágape
 📘 Controle de Contribuições
 
-";
-    msg += `👤 Nome: ${nome}
 `;
-    msg += `📅 Mês de referência: ${mes}
-`;
-    msg += `📜 Declaração aceita: ${aceitou}
+    msg += `👤 Nome: ${nome}\n`;
+    msg += `📅 Mês de referência: ${mes}\n`;
+    msg += `📜 Declaração aceita: ${aceitou}\n\n`;
 
-`;
+    if (dizimo > 0) msg += `Dízimo: ${moeda(dizimo)}\n`;
+    if (primicias > 0) msg += `Primícias: ${moeda(primicias)}\n`;
+    if (ofertas > 0) msg += `Ofertas: ${moeda(ofertas)}\n`;
+    if (missoes > 0) msg += `Missões: ${moeda(missoes)}\n`;
+    if (votos > 0) msg += `Votos: ${moeda(votos)}\n`;
+    if (outrosValor > 0) msg += `Outros (${outrosDesc || "identificação"}): ${moeda(outrosValor)}\n`;
 
-    if (dizimo > 0) msg += `Dízimo: ${moeda(dizimo)}
-`;
-    if (primicias > 0) msg += `Primícias: ${moeda(primicias)}
-`;
-    if (ofertas > 0) msg += `Ofertas: ${moeda(ofertas)}
-`;
-    if (missoes > 0) msg += `Missões: ${moeda(missoes)}
-`;
-    if (votos > 0) msg += `Votos: ${moeda(votos)}
-`;
-    if (outrosValor > 0) msg += `Outros (${outrosDesc || "identificação"}): ${moeda(outrosValor)}
-`;
-
-    msg += `
-🔷 Total: ${total}
-
-`;
+    msg += `\n🔷 Total: ${total}\n\n`;
     msg += "Por favor, anexe o comprovante ao enviar.";
     return msg;
   }
@@ -245,3 +232,4 @@
 
 </body>
 </html>
+
